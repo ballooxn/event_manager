@@ -19,14 +19,13 @@ end
 
 def clean_phone_numbers(number)
   number_array = format_phone_number(number)
+
   if number_array.length == 10
     number_array.join
-  elsif number_array.length < 10
-    0
   elsif number_array.length == 11 && number_array[0] == "1"
     number_array.join[1..]
   else
-    0
+    "bad number"
   end
 end
 

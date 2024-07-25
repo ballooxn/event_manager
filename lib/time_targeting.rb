@@ -1,21 +1,22 @@
-require 'csv'
-require 'time'
+require "csv"
+require "time"
 
 contents = CSV.open(
-  'event_attendees.csv',
+  "event_attendees.csv",
   headers: true,
   header_converters: :symbol
 )
 
 def get_date(reg_date)
-  Time.strptime(reg_date, "%m/%d/%Y %k:%M") {|y| y + 2000 }
+  Time.strptime(reg_date, "%m/%d/%Y %k:%M") { |y| y + 2000 }
 end
 
 def find_frequency(array)
-  freq = array.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+  freq = array.each_with_object(Hash.new(0)) do |v, h|
+    h[v] += 1
+  end
   sorted_freq = freq.sort_by { |_, count| count }.reverse
-  top_two = sorted_freq.take(2).map { |num, _| num }
-  top_two
+  sorted_freq.take(2).map { |num, _| num }
 end
 
 hours_array = []

@@ -5,8 +5,11 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
+    cgi (0.4.1)
     csv (3.3.0)
     declarative (0.0.20)
+    erb (4.0.4)
+      cgi (>= 0.3.3)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
       json
@@ -86,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   csv (~> 3.3)
+  erb (~> 4.0)
   google-apis-civicinfo_v2 (~> 0.24.0)
   rubocop (~> 1.67)
 

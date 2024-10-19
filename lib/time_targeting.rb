@@ -4,7 +4,7 @@ require "time"
 hours = []
 
 def get_hour(date)
-  hour = Time.strptime(date, "%Y/%d/%m %R").hour
+  Time.strptime(date, "%Y/%d/%m %R").hour
 end
 
 contents = CSV.open("event_attendees.csv",
